@@ -116,47 +116,40 @@
     </template>
 
 
-    <primitive-type name="bool" java-name="boolean" jni-name="jboolean"/>
+    <primitive-type name="bool" java-name="C-boolean" jni-name="bool"/>
+    <primitive-type name="double" java-name="C-double" jni-name="double"/>
+    <primitive-type name="float" java-name="C-float" jni-name="float"/>
+    <primitive-type name="__int64" java-name="C-long" preferred-conversion="no" jni-name="long" />
+    <primitive-type name="unsigned __int64" java-name="C-long" preferred-conversion="no" jni-name="long"/>
+    <primitive-type name="unsigned long long" java-name="C-long" preferred-conversion="no" jni-name="long"/>
+    <primitive-type name="long long" java-name="C-long" jni-name="long"/>
+    <primitive-type name="quintptr" preferred-conversion="no" java-name="C-long" jni-name="long" />
 
-    <primitive-type name="double" jni-name="jdouble"/>
+    <primitive-type name="short" java-name="C-short" jni-name="short" />
+    <primitive-type name="signed short" java-name="C-signde-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short -->
+    <primitive-type name="unsigned short" java-name="C-unsigned-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short --> 
+    <primitive-type name="unsigned short int" java-name="C-unsigned-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short --> 
 
-    <primitive-type name="float" jni-name="jfloat"/>
+    <primitive-type name="char" java-name="C-char" jni-name="char"/>
+    <primitive-type name="signed char" java-name="C-signed-char" preferred-conversion="no" jni-name="char"/>
+    <primitive-type name="unsigned char" java-name="C-unsigned-char" preferred-conversion="no" jni-name="char"/>
 
-    <primitive-type name="__int64" java-name="long" preferred-conversion="no" jni-name="jlong" />
-    <primitive-type name="unsigned __int64" java-name="long" preferred-conversion="no" jni-name="jlong"/>
-    <primitive-type name="unsigned long long" java-name="long" preferred-conversion="no" jni-name="jlong"/>
-    <primitive-type name="long long" java-name="long" jni-name="jlong"/>
-    <primitive-type name="quintptr" preferred-conversion="no" java-name="long" jni-name="jlong" />
+    <primitive-type name="int" java-name="C-int" jni-name="int"/>
+    <primitive-type name="signed int" java-name="C-signed-int" preferred-conversion="no" jni-name="int"/>
+    <primitive-type name="uint" java-name="C-unsigned-int" preferred-conversion="no" jni-name="int"/>
+    <primitive-type name="ulong" java-name="C-unsigned-long" preferred-conversion="no" jni-name="int"/>
+    <primitive-type name="unsigned int" java-name="C-unsigned-int" preferred-conversion="no" jni-name="unsigned int"/>
+    <primitive-type name="signed long" java-name="C-signed-long" preferred-conversion="no" jni-name="int"/>
+    <primitive-type name="long" java-name="C-long" preferred-conversion="no" jni-name="int"/>
+    <primitive-type name="unsigned long" java-name="C-unsigned-long" preferred-conversion="no" jni-name="int"/>
 
-    <primitive-type name="short" java-name="char" preferred-java-type="no" preferred-conversion="no" jni-name="jchar"/>
-    <primitive-type name="short" java-name="short" jni-name="jshort" />
-    <primitive-type name="signed short" java-name="short" preferred-conversion="no" jni-name="jshort"/><!-- jchar short/jshort -->
-    <primitive-type name="unsigned short" java-name="short" preferred-conversion="no" jni-name="jshort"/><!-- jchar short/jshort --> 
-    <primitive-type name="unsigned short int" java-name="short" preferred-conversion="no" jni-name="jshort"/><!-- jchar short/jshort --> 
-
-    <primitive-type name="char" java-name="byte" jni-name="jbyte"/>
-    <primitive-type name="signed char" java-name="byte" preferred-conversion="no" jni-name="jbyte"/>
-    <primitive-type name="unsigned char" java-name="byte" preferred-conversion="no" jni-name="jbyte"/>
-
-    <primitive-type name="int" jni-name="jint"/>
-    <primitive-type name="signed int" java-name="int" preferred-conversion="no" jni-name="jint"/>
-    <primitive-type name="uint" java-name="int" preferred-conversion="no" jni-name="jint"/>
-    <primitive-type name="ulong" java-name="int" preferred-conversion="no" jni-name="jint"/>
-    <primitive-type name="unsigned int" java-name="int" preferred-conversion="no" jni-name="jint"/>
-    <primitive-type name="signed long" java-name="int" preferred-conversion="no" jni-name="jint"/>
-    <primitive-type name="long" java-name="int" preferred-conversion="no" jni-name="jint"/>
-    <primitive-type name="unsigned long" java-name="int" preferred-conversion="no" jni-name="jint"/>
-
-    <primitive-type name="WId" java-name="long" preferred-conversion="no" jni-name="jlong"/>
-    <primitive-type name="Qt::HANDLE" java-name="long" preferred-conversion="no" jni-name="jlong"/>
-    <primitive-type name="QVariant::Type" java-name="int" preferred-conversion="no" jni-name="jint"/>
-
-    <primitive-type name="QByteRef" java-name="byte" preferred-conversion="no" jni-name="jbyte"/>
-    <primitive-type name="QBitRef" java-name="boolean" preferred-conversion="no" jni-name="jboolean"/>
-
-    <primitive-type name="QBool" java-name="boolean" preferred-conversion="no" jni-name="bool"/>
-
-    <primitive-type name="jobject" java-name="java.lang.Object" jni-name="jobject"/>
+    <primitive-type name="WId" java-name="C-long" preferred-conversion="no" jni-name="long"/>
+    <primitive-type name="Qt::HANDLE" java-name="C-long" preferred-conversion="no" jni-name="long"/>
+    <primitive-type name="QVariant::Type" java-name="C-int" preferred-conversion="no" jni-name="int"/>
+    <primitive-type name="QByteRef" java-name="C-char" preferred-conversion="no" jni-name="char"/>
+    <primitive-type name="QBitRef" java-name="C-boolean" preferred-conversion="no" jni-name="boolean"/>
+    <primitive-type name="QBool" java-name="C-boolean" preferred-conversion="no" jni-name="bool"/>
+    <primitive-type name="jobject" java-name="object" jni-name="object"/>
 
 
     <value-type name="QDate">
@@ -1047,17 +1040,6 @@
                 </conversion-rule>
             </modify-argument>
 
-            <modify-argument index="1">
-                <replace-type modified-type="byte[]"/>
-                <conversion-rule class="shell">
-                    <insert-template name="core.iodevice_convert_char*_to_byte[]">
-                        <replace from="%len" to="%2"/>
-                    </insert-template>
-                </conversion-rule>
-                <conversion-rule class="native">
-                    <insert-template name="core.iodevice_convert_byte[]_to_char*"/>
-                </conversion-rule>
-            </modify-argument>
 
             <modify-argument index="2">
                 <remove-argument/>
@@ -1073,17 +1055,6 @@
         </modify-function>
 
         <modify-function signature="writeData(const char*,long long)">
-            <modify-argument index="1">
-                <replace-type modified-type="byte[]"/>
-                <conversion-rule class="shell">
-                    <insert-template name="core.iodevice_convert_char*_to_byte[]">
-                        <replace from="%len" to="%2"/>
-                    </insert-template>
-                </conversion-rule>
-                <conversion-rule class="native">
-                    <insert-template name="core.iodevice_convert_byte[]_to_char*"/>
-                </conversion-rule>
-            </modify-argument>
 
             <modify-argument index="2">
                 <remove-argument/>
@@ -1106,17 +1077,6 @@
         </modify-function>
 
         <modify-function signature="readLineData(char*,long long)">
-            <modify-argument index="1">
-                <replace-type modified-type="byte[]"/>
-                <conversion-rule class="shell">
-                    <insert-template name="core.iodevice_convert_char*_to_byte[]">
-                        <replace from="%len" to="%2"/>
-                    </insert-template>
-                </conversion-rule>
-                <conversion-rule class="native">
-                    <insert-template name="core.iodevice_convert_byte[]_to_char*"/>
-                </conversion-rule>
-            </modify-argument>
 
             <modify-argument index="2">
                 <remove-argument/>
@@ -1164,26 +1124,6 @@
 
         <modify-function signature="convertFromUnicode(const QChar*,int,QTextCodec::ConverterState*)const">
             <modify-argument index="3" invalidate-after-use="yes" />
-            <modify-argument index="1">
-                <replace-type modified-type="char[]"/>
-                <conversion-rule class="shell">
-                    // Convert directly QChar * -&gt; ushort *
-                    <insert-template name="core.convert_primitive_array_to_java">
-                        <replace from="%JNITYPE" to="jchar"/>
-                        <replace from="%JAVATYPE" to="Char"/>
-                        <replace from="%len" to="%2"/>
-                    </insert-template>
-                </conversion-rule>
-                <conversion-rule class="native">
-                    // Convert directly ushort * -&gt; QChar *
-                    <insert-template name="core.convert_primitive_array_from_java">
-                        <replace from="%CTYPE" to="ushort"/>
-                        <replace from="%JAVATYPE" to="Char"/>
-                        <replace from="%JNITYPE" to="jchar"/>
-                    </insert-template>
-                </conversion-rule>
-            </modify-argument>
-
             <modify-argument index="0">
                 <conversion-rule class="native">
                     jobject %out = qtjambi_from_object(__jni_env, &amp;%in, "QByteArray", "com/trolltech/qt/core/", true);
@@ -1197,23 +1137,6 @@
 
         <modify-function signature="convertToUnicode(const char*,int,QTextCodec::ConverterState*)const">
             <modify-argument index="3" invalidate-after-use="yes" />
-            <modify-argument index="1">
-                <replace-type modified-type="byte[]"/>
-                <conversion-rule class="shell">
-                    <insert-template name="core.convert_primitive_array_to_java">
-                        <replace from="%JNITYPE" to="jbyte"/>
-                        <replace from="%JAVATYPE" to="Byte"/>
-                        <replace from="%len" to="%2"/>
-                    </insert-template>
-                </conversion-rule>
-                <conversion-rule class="native">
-                    <insert-template name="core.convert_primitive_array_from_java">
-                        <replace from="%CTYPE" to="char"/>
-                        <replace from="%JAVATYPE" to="Byte"/>
-                        <replace from="%JNITYPE" to="jbyte"/>
-                    </insert-template>
-                </conversion-rule>
-            </modify-argument>
 
             <modify-argument index="0">
                 <conversion-rule class="native">
