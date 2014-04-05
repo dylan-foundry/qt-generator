@@ -1165,54 +1165,6 @@
         <inject-code>
             <import-file name="typesystem/java/typesystem_core-java.java" quote-after-line="class QTranslator___" quote-before-line="}// class"/>
         </inject-code>
-
-        <modify-function signature="translate(const char*,const char*,const char*)const">
-            <modify-argument index="1">
-                <replace-type modified-type="java.lang.String"/>
-                <conversion-rule class="shell">
-        QTextCodec *codec = QTextCodec::codecForName("UTF-8");
-        QByteArray b1;
-        if (%in != 0)
-            b1 = codec->fromUnicode(%in);
-
-        jobject %out = qtjambi_from_qstring(__jni_env, QString(b1));
-                </conversion-rule>
-
-                <conversion-rule class="native">
-        QByteArray b1 = qtjambi_to_qstring(__jni_env, (jstring) %in).toUtf8();
-        const char* %out = b1.data();
-                </conversion-rule>
-            </modify-argument>
-            <modify-argument index="2">
-                <replace-type modified-type="java.lang.String"/>
-                <conversion-rule class="shell">
-        QByteArray b2;
-        if (%in != 0)
-            b2 = codec->fromUnicode(%in);
-
-        jobject %out = qtjambi_from_qstring(__jni_env, QString(b2));
-                </conversion-rule>
-                <conversion-rule class="native">
-        QByteArray b2 = qtjambi_to_qstring(__jni_env, (jstring) %in).toUtf8();
-        const char* %out = b2.data();
-                </conversion-rule>
-
-            </modify-argument>
-            <modify-argument index="3">
-                <replace-type modified-type="java.lang.String"/>
-                <conversion-rule class="shell">
-        QByteArray b3;
-        if (%in != 0)
-            b3 = codec->fromUnicode(%in);
-
-        jobject %out = qtjambi_from_qstring(__jni_env, QString(b3));
-                </conversion-rule>
-                <conversion-rule class="native">
-        QByteArray b3 = qtjambi_to_qstring(__jni_env, (jstring) %in).toUtf8();
-        const char* %out = b3.data();
-                </conversion-rule>
-            </modify-argument>
-        </modify-function>
     </object-type>
 
     <object-type name="QWaitCondition">
