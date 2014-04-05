@@ -61,6 +61,8 @@ QString MetaDylanFunction::dylanName() const {
       function_name += "-" + arg->type()->name();
     }
   }
+  function_name.replace(" ", "-");
+  function_name.replace("&", "");
   return function_name.toLower();
 }
 
@@ -110,22 +112,28 @@ QString MetaDylanFunction::marshalledName(Options options) const {
 }
 
 QString MetaDylanEnumValue::dylanName() const {
-  return "$" + name();
+  return "$" + name().replace("_", "");
 }
 
 QString MetaDylanEnumValue::dylanName(const AbstractMetaEnum *owner) const {
+  QString s;
   if (owner->enclosingClass()) {
-    return "$" + owner->enclosingClass()->name() + owner->name() + name();
+    s = "$" + owner->enclosingClass()->name() + owner->name() + name();
   } else {
-    return dylanName();
+    s = dylanName();
   }
+  return s.replace("_", "");
 }
 
 QString MetaDylanEnum::dylanName() const {
+  QString s;
+  s = "<";
   if (enclosingClass())
-    return "<" + enclosingClass()->name() + name() + ">";
+    s = enclosingClass()->name() + name();
   else
-    return "<" + name() + ">";
+    s = name();
+  s = s.replace("_", "") + ">";
+  return s;
 }
 
 QString MetaDylanEnum::package() const {
