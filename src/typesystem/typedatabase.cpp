@@ -54,6 +54,7 @@ TypeDatabase::TypeDatabase() : m_suppressWarnings(true), m_includeEclipseWarning
 
 #ifdef LANG_JAVA
     addType(new ThreadTypeEntry());
+    addType(new QModelIndexTypeEntry());
 #endif
     addType(new VoidTypeEntry());
 
@@ -69,9 +70,6 @@ TypeDatabase::TypeDatabase() : m_suppressWarnings(true), m_includeEclipseWarning
     addType(new ContainerTypeEntry("QPair", ContainerTypeEntry::PairContainer));
     addType(new ContainerTypeEntry("QQueue", ContainerTypeEntry::QueueContainer));
     addType(new ContainerTypeEntry("QMultiMap", ContainerTypeEntry::MultiMapContainer));
-
-    // Custom types...
-    addType(new QModelIndexTypeEntry());
 
     addRemoveFunctionToTemplates(this);
 }
