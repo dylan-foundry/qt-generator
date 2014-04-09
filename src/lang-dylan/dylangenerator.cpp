@@ -117,8 +117,14 @@ QString DylanGenerator::translateType(const AbstractMetaType *dylan_type, const 
             if (option & EnumAsInts)
                 s = "<integer>";
             else {
-                const EnumTypeEntry *type = (EnumTypeEntry *)dylan_type->typeEntry();
-                s = "<" + type->javaQualifier() +  dylan_type->name() + ">";
+                if (dylan_type->isFlags()) {
+                  const FlagsTypeEntry *flags_type = (const FlagsTypeEntry *)dylan_type->typeEntry();
+                  const EnumTypeEntry *type = (EnumTypeEntry *)flags_type->originator();
+                  s = "<" + type->javaQualifier() +  type->targetLangName() + ">";
+                } else {
+                  const EnumTypeEntry *type = (EnumTypeEntry *)dylan_type->typeEntry();
+                  s = "<" + type->javaQualifier() +  dylan_type->name() + ">";
+                }
             }
         }
     } else {
