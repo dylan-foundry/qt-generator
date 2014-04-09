@@ -54,50 +54,69 @@ static void generateUseStatements(QTextStream &s, const QString &package) {
     }
 }
 
+void LibraryGenerator::generateLibraryFile(const QString &package, const QStringList &bindings)
+{
+    FileOut file(resolveOutputDirectory() + "/" + package + "/library.dylan");
+
+    file.stream << "module: dylan-user\n";
+    file.stream << "copyright: See LICENSE file in this distribution.\n";
+    file.stream << "\ndefine library " << package << endl;
+    file.stream << "  use dylan;\n";
+    file.stream << "  use common-dylan;\n";
+    file.stream << "  use c-ffi;\n";
+
+    generateUseStatements(file.stream, package);
+    file.stream << "\n";
+
+    file.stream << "  export " << package << ";\n";
+    file.stream << "end library;\n";
+
+    file.stream << "\ndefine module " << package << endl;
+    file.stream << "  use dylan;\n";
+    file.stream << "  use common-dylan;\n";
+    file.stream << "  use c-ffi;\n";
+
+    generateUseStatements(file.stream, package);
+    file.stream << "\n";
+
+    file.stream << "  export\n";
+    bool is_first = true;
+    foreach(const QString &entry, bindings) {
+        if (!is_first) {
+            file.stream << ",\n";
+        }
+        is_first = false;
+        file.stream << "    " << entry;
+    }
+    file.stream << ";\n";
+    file.stream << "end module;\n";
+
+    if (file.done()) {
+        ++m_num_generated_written;
+    }
+    ++m_num_generated;
+}
+
+void LibraryGenerator::generateRegistryEntry(const QString &package)
+{
+    FileOut file(resolveOutputDirectory() + "/registry/generic/" + package);
+    file.stream << "abstract://dylan/" + package + "/" + package + ".lid";
+    if (file.done()) {
+        ++m_num_generated_written;
+    }
+    ++m_num_generated;
+}
+
 void LibraryGenerator::generate() {
     QHashIterator<QString, Module> module(m_modules);
 
     while (module.hasNext()) {
-      module.next();
+        module.next();
 
-      FileOut file(resolveOutputDirectory() + "/" + module.key() + "/library.dylan");
-      file.stream << "module: dylan-user\n";
-      file.stream << "copyright: See LICENSE file in this distribution.\n";
-      QStringList list = module.value().bindings.values();
-      qSort(list.begin(), list.end());
-      file.stream << "\ndefine library " << module.key() << endl;
-      file.stream << "  use dylan;\n";
-      file.stream << "  use common-dylan;\n";
-      file.stream << "  use c-ffi;\n";
+        QStringList bindings = module.value().bindings.values();
+        qSort(bindings.begin(), bindings.end());
 
-      generateUseStatements(file.stream, module.key());
-      file.stream << "\n";
-
-      file.stream << "  export " << module.key() << ";\n";
-      file.stream << "end library;\n";
-
-      file.stream << "\ndefine module " << module.key() << endl;
-      file.stream << "  use dylan;\n";
-      file.stream << "  use common-dylan;\n";
-      file.stream << "  use c-ffi;\n";
-
-      generateUseStatements(file.stream, module.key());
-      file.stream << "\n";
-
-      file.stream << "  export\n";
-      bool is_first = true;
-      foreach(const QString &entry, list) {
-          if (!is_first) {
-            file.stream << ",\n";
-          }
-          is_first = false;
-          file.stream << "    " << entry;
-      }
-      file.stream << ";\n";
-      file.stream << "end module;\n";
-
-      if (file.done())
-          ++m_num_generated_written;
-      ++m_num_generated;
+        generateLibraryFile(module.key(), bindings);
+        generateRegistryEntry(module.key());
     }
 }

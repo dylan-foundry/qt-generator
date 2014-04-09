@@ -65,6 +65,8 @@ class LibraryGenerator : public Generator {
         QHash<QString, Module> m_modules;
         QString m_cpp_out_dir;
 
+        void generateLibraryFile(const QString &package, const QStringList &bindings);
+        void generateRegistryEntry(const QString &package);
 };
 #endif // LIBRARYGENERATOR_H
 
