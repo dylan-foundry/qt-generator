@@ -187,7 +187,7 @@ void DylanGenerator::writeIntegerEnum(QTextStream &s, const AbstractMetaEnum *ab
 
         if (dylan_enum->typeEntry()->isEnumValueRejected(value->name()))
             continue;
-        s << "define constant " + value->dylanName(dylan_enum) << " = " << value->value() << ";\n";
+        s << "define constant " + value->dylanName(dylan_enum) << " = #x" << QString::number(value->value(), 16) << ";\n";
         libraryGenerator->addBinding(dylan_enum->package(), value->dylanName(dylan_enum));
     }
     s << "define constant " << dylan_enum->dylanName() << " = <C-int>;\n";
