@@ -116,8 +116,10 @@ QString DylanGenerator::translateType(const AbstractMetaType *dylan_type, const 
         } else {
             if (option & EnumAsInts)
                 s = "<integer>";
-            else
-                s = "<" + context->name() + dylan_type->name() + ">";
+            else {
+                const EnumTypeEntry *type = (EnumTypeEntry *)dylan_type->typeEntry();
+                s = "<" + type->javaQualifier() +  dylan_type->name() + ">";
+            }
         }
     } else {
         if (dylan_type->isPrimitive() && (option & BoxedPrimitive)) {

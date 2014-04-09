@@ -129,9 +129,9 @@ QString MetaDylanEnum::dylanName() const {
   QString s;
   s = "<";
   if (enclosingClass())
-    s = enclosingClass()->name() + name();
+    s += enclosingClass()->name() + name();
   else
-    s = name();
+    s += name();
   s = s.replace("_", "") + ">";
   return s;
 }
