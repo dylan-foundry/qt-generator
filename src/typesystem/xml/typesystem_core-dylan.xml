@@ -126,7 +126,7 @@
     <primitive-type name="quintptr" preferred-conversion="no" java-name="C-long" jni-name="long" />
 
     <primitive-type name="short" java-name="C-short" jni-name="short" />
-    <primitive-type name="signed short" java-name="C-signde-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short -->
+    <primitive-type name="signed short" java-name="C-signed-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short -->
     <primitive-type name="unsigned short" java-name="C-unsigned-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short --> 
     <primitive-type name="unsigned short int" java-name="C-unsigned-short" preferred-conversion="no" jni-name="short"/><!-- jchar short/short --> 
 

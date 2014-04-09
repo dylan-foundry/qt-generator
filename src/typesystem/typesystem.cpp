@@ -56,7 +56,7 @@ QString strings_java_lang = QLatin1String("java.lang");
 QString strings_jchar = QLatin1String("jchar");
 QString strings_jobject = QLatin1String("jobject");
 #elif defined(LANG_DYLAN)
-QString strings_Object = QLatin1String("object");
+QString strings_Object = QLatin1String("C-void*");
 QString strings_String = QLatin1String("C-string");
 QString strings_Thread = QLatin1String("XXX-Thread");
 QString strings_char = QLatin1String("C-char");
