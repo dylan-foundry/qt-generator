@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <typesystem package="qt-multimedia" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtGui");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtMultimedia");
+    use qt-core;
+    use qt-gui;
     </inject-code>
 <object-type name="QAbstractVideoSurface">
 <!--<modify-function signature="nearestFormat(const QVideoSurfaceFormat&amp;)const" remove="all">

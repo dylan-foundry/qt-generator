@@ -2,13 +2,10 @@
 <typesystem package="qt-designer" default-superclass="com.trolltech.qt.internal.QtJambiObject">
 
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtGui");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtXml");
-        if(com.trolltech.qt.Utilities.isAvailableQtLibrary("QtScript"))
-            com.trolltech.qt.Utilities.loadQtLibrary("QtScript");    // load if exists
-        com.trolltech.qt.Utilities.loadQtLibrary("QtDesigner");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtDesignerComponents");
+    use qt-core;
+    use qt-gui;
+    use qt-xml;
+    use qt-script;
     </inject-code>
 
     <primitive-type name="qdesigner_internal::FlagType" java-name="int" preferred-conversion="no" jni-name="jint" />

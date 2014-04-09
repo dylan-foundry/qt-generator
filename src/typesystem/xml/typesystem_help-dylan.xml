@@ -1,15 +1,10 @@
 <?xml version="1.0"?>
 <typesystem package="qt-help" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtGui");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtNetwork");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtXml");
-        if(com.trolltech.qt.Utilities.isAvailableQtLibrary("QtSql"))
-            com.trolltech.qt.Utilities.loadQtLibrary("QtSql");       // load if exists
-        if(com.trolltech.qt.Utilities.isAvailableQtLibrary("QtCLucene"))
-            com.trolltech.qt.Utilities.loadQtLibrary("QtCLucene");   // load if exists
-        com.trolltech.qt.Utilities.loadQtLibrary("QtHelp");
+    use qt-core;
+    use qt-gui;
+    use qt-network;
+    use qt-xml;
     </inject-code>
 
 

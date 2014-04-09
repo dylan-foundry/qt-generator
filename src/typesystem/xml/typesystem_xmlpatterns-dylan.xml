@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <typesystem package="qt-xmlpatterns" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-    com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-    com.trolltech.qt.Utilities.loadQtLibrary("QtNetwork");
-    com.trolltech.qt.Utilities.loadQtLibrary("QtXmlPatterns");
+    use qt-core;
+    use qt-network;
     </inject-code>
 
     <value-type name="QXmlName">

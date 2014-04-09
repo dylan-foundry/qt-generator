@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <typesystem package="qt-gui" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtGui");
+    use qt-core;
     </inject-code>
 
     <template name="gui.getter_returning_nativepointer">

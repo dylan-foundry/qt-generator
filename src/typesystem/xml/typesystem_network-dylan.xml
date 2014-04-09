@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <typesystem package="qt-network" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtNetwork");
+    use qt-core;
     </inject-code>
 
     <template name="network.read_char*_long_long">

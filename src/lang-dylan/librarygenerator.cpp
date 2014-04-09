@@ -37,9 +37,21 @@
 #include "librarygenerator.h"
 #include "reporthandler.h"
 #include "fileout.h"
+#include "typesystem/typedatabase.h"
 
 void LibraryGenerator::addBinding(const QString &module, const QString &binding) {
     m_modules[module].bindings << binding;
+}
+
+static void generateUseStatements(QTextStream &s, const QString &package) {
+    QList<CodeSnip> snips =
+        ((TypeSystemTypeEntry *) TypeDatabase::instance()->findType(package))->snips;
+
+    foreach(const CodeSnip &snip, snips) {
+        if (snip.position == CodeSnip::Beginning) {
+            s << snip.code();
+        }
+    }
 }
 
 void LibraryGenerator::generate() {
@@ -56,7 +68,10 @@ void LibraryGenerator::generate() {
       file.stream << "\ndefine library " << module.key() << endl;
       file.stream << "  use dylan;\n";
       file.stream << "  use common-dylan;\n";
-      file.stream << "  use c-ffi;\n\n";
+      file.stream << "  use c-ffi;\n";
+
+      generateUseStatements(file.stream, module.key());
+      file.stream << "\n";
 
       file.stream << "  export " << module.key() << ";\n";
       file.stream << "end library;\n";
@@ -64,7 +79,11 @@ void LibraryGenerator::generate() {
       file.stream << "\ndefine module " << module.key() << endl;
       file.stream << "  use dylan;\n";
       file.stream << "  use common-dylan;\n";
-      file.stream << "  use c-ffi;\n\n";
+      file.stream << "  use c-ffi;\n";
+
+      generateUseStatements(file.stream, module.key());
+      file.stream << "\n";
+
       file.stream << "  export\n";
       bool is_first = true;
       foreach(const QString &entry, list) {

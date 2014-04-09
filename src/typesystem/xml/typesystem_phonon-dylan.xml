@@ -1,15 +1,8 @@
 <?xml version="1.0"?>
 <typesystem package="qt-phonon" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtGui");
-        if(com.trolltech.qt.Utilities.isAvailableQtLibrary("QtXml"))  // made optional as KDE phonon does not have this dependency
-            com.trolltech.qt.Utilities.loadQtLibrary("QtXml");
-        //if(com.trolltech.qt.Utilities.isAvailableQtLibrary("QtOpenGL"))
-        //    com.trolltech.qt.Utilities.loadQtLibrary("QtOpenGL");	// when was this needed ?
-        if(com.trolltech.qt.Utilities.isAvailableQtLibrary("QtDBus"))
-            com.trolltech.qt.Utilities.loadQtLibrary("QtDBus");	// load if exists
-        com.trolltech.qt.Utilities.loadQtLibrary("phonon");
+    use qt-core;
+    use qt-gui;
     </inject-code>
 
     <value-type name="Phonon::EffectDescription">

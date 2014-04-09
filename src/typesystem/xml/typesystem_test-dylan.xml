@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <typesystem package="qt-test" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtTest");
+    use qt-core;
     </inject-code>
 </typesystem>

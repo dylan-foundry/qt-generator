@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <typesystem package="qt-script" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtScript");
+    use qt-core;
     </inject-code>
     <value-type name="QScriptValue">
       <modify-function signature="call(const QScriptValue &amp;, const QScriptValueList &amp;)" remove="all">

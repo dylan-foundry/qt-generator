@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <typesystem package="qt-dbus" default-superclass="com.trolltech.qt.internal.QtJambiObject">
     <inject-code>
-        com.trolltech.qt.Utilities.loadQtLibrary("QtCore");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtXml");
-        com.trolltech.qt.Utilities.loadQtLibrary("QtDBus");
+    use qt-core;
+    use qt-xml;
     </inject-code>
 </typesystem>
