@@ -435,9 +435,6 @@ void PlainCppImplGenerator::write(QTextStream &s, const AbstractMetaClass *abstr
     if (shellInclude)
         s << "#include \"qtc_" << java_class->name() << ".h\"" << endl;
 
-    if (java_class->isQObject())
-        s << "#include <qtjambi/qtdynamicmetaobject.h>" << endl;
-
     Include inc = java_class->typeEntry()->include();
     if (!inc.name.isEmpty()) {
         s << "#include ";
@@ -452,10 +449,6 @@ void PlainCppImplGenerator::write(QTextStream &s, const AbstractMetaClass *abstr
             s << "\"";
         s << endl;
     }
-
-    s << "#include <qtjambi/qtjambi_core.h>" << endl
-    << "#include <qtjambi/qtjambifunctiontable.h>" << endl
-    << "#include <qtjambi/qtjambilink.h>" << endl;
 
     writeShellSignatures(s, java_class);
 
