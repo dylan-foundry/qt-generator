@@ -202,17 +202,18 @@ QString AbstractMetaFunction::marshalledName(Options options) const {
     else
         returned += ownerClass()->name();
 
-    returned += "_" + name();
+    returned += "_" + name().replace(" ", "_").remove("&");
     AbstractMetaArgumentList arguments = this->arguments();
     foreach(const AbstractMetaArgument *arg, arguments) {
         returned += "_";
         if (arg->type()->isNativePointer()) {
-            returned += "nativepointer" + arg->type()->name().replace("[]", "_3").replace(".", "_");
+            returned += "nativepointer" + arg->type()->name();
         } else if (arg->type()->isIntegerEnum() || arg->type()->isIntegerFlags()) {
             returned += "int";
         } else {
-            returned += arg->type()->name().replace("[]", "_3").replace(".", "_");
+            returned += arg->type()->name().replace("[]", "_3").replace(".", "_").replace("-", "_");
         }
+        returned.replace("[]", "_3").replace(".", "_").replace("-", "_").remove("*");
     }
 
     if (this->isConstant())

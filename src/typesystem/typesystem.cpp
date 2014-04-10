@@ -62,7 +62,7 @@ QString strings_Thread = QLatin1String("XXX-Thread");
 QString strings_char = QLatin1String("C-char");
 QString strings_java_lang = QLatin1String("");
 QString strings_jchar = QLatin1String("char");
-QString strings_jobject = QLatin1String("void *");
+QString strings_jobject = QLatin1String("void");
 #endif
 
 //static void addRemoveFunctionToTemplates(TypeDatabase *db);
