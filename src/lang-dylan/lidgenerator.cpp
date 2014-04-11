@@ -55,8 +55,8 @@ void LidGenerator::generate() {
     while (lid.hasNext()) {
         lid.next();
 
-        FileOut file(resolveOutputDirectory() + "/" + lid.key());
-        file.stream << "Library: xxx\n";
+        FileOut file(resolveOutputDirectory() + "/" + lid.key() + "/" + lid.key() + ".lid");
+        file.stream << "Library: " + lid.key() + "\n";
         file.stream << "Target-Type: dll\n";
         file.stream << "Files: library\n";
         QStringList list = lid.value().bindings;

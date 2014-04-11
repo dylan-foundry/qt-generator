@@ -1258,9 +1258,7 @@ void DylanGenerator::write(QTextStream &s, const AbstractMetaClass *abstract_cla
         }
     }
 */
-    QString lid_file_name = dylan_class->package() + "/" + dylan_class->package() + ".lid";
-
-    lidGenerator->addBinding(lid_file_name, dylan_class->name());
+    lidGenerator->addBinding(dylan_class->package(), dylan_class->name());
 }
 
 void DylanGenerator::generate() {
