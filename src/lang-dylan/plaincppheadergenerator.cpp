@@ -78,6 +78,7 @@ void PlainCppHeaderGenerator::writeWrapperClass(QTextStream &s, const AbstractMe
     AbstractMetaFunctionList signal_functions = signalFunctions(java_class);
     if (signal_functions.size() == 0)
         return ;
+/*
 
     s << "class QtJambi_SignalWrapper_" << java_class->name() << ": public QObject" << endl
     << "{" << endl
@@ -87,6 +88,7 @@ void PlainCppHeaderGenerator::writeWrapperClass(QTextStream &s, const AbstractMe
     << "    QtJambiSignalInfo m_signals[" << signal_functions.size() << "];" << endl
     << "    QtJambiLink *link;" << endl
     << "};" << endl << endl;
+*/
 }
 
 void PlainCppHeaderGenerator::write(QTextStream &s, const AbstractMetaClass *abstract_class) {
@@ -147,7 +149,8 @@ void PlainCppHeaderGenerator::write(QTextStream &s, const AbstractMetaClass *abs
     << "{" << endl;
 
     if (java_class->isQObject()) {
-        s << "public:" << endl
+        s << "public:" << endl;
+/*
         << "  Q_OBJECT_CHECK" << endl
         << "  mutable const QMetaObject *m_meta_object;" << endl;
 
@@ -162,6 +165,7 @@ void PlainCppHeaderGenerator::write(QTextStream &s, const AbstractMetaClass *abs
         // This is referenced by the exported static JNI constructors which have
         //  normal access to methods and are unable to invoke privates.
         s << "  const QMetaObject *initMetaObject(JNIEnv *env, jobject java_object);" << endl;
+*/
         s << "private:" << endl;
     }
 
@@ -244,16 +248,20 @@ void PlainCppHeaderGenerator::writeVirtualFunctionOverride(QTextStream &s,
 
 
 void PlainCppHeaderGenerator::writeForwardDeclareSection(QTextStream &s, const AbstractMetaClass *) {
+/*
     s << endl
     << "class QtJambiFunctionTable;" << endl
     << "class QtJambiLink;" << endl;
+*/
 }
 
 
 void PlainCppHeaderGenerator::writeVariablesSection(QTextStream &s, const AbstractMetaClass *) {
+/*
     s << endl
     << "    QtJambiFunctionTable *m_vtable;" << endl
     << "    QtJambiLink *m_link;" << endl;
+*/
 }
 
 void PlainCppHeaderGenerator::writeInjectedCode(QTextStream &s, const AbstractMetaClass *java_class) {
