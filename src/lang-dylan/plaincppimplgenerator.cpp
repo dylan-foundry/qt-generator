@@ -3068,9 +3068,9 @@ QString PlainCppImplGenerator::translateType(const AbstractMetaType *java_type, 
         return java_type->typeEntry()->jniName();
     } else if (java_type->isIntegerEnum() || java_type->isIntegerFlags()
                || ((option & EnumAsInts) && (java_type->isEnum() || java_type->isFlags()))) {
-        return "jint";
+        return "int";
     } else {
-        return "jobject";
+        return "void *";
     }
 }
 
