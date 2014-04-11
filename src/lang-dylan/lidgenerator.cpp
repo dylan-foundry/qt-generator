@@ -58,6 +58,7 @@ void LidGenerator::generate() {
         FileOut file(resolveOutputDirectory() + "/" + lid.key() + "/" + lid.key() + ".lid");
         file.stream << "Library: " + lid.key() + "\n";
         file.stream << "Target-Type: dll\n";
+        file.stream << "Jam-Includes: " + lid.key() + ".jam\n";
         file.stream << "Files: library\n";
         QStringList list = lid.value().bindings;
         qSort(list.begin(), list.end());
@@ -90,6 +91,17 @@ void LidGenerator::generate() {
         }
 
         if (file.done())
+            ++m_num_generated_written;
+        ++m_num_generated;
+
+        FileOut jamFile(resolveOutputDirectory() + "/" + lid.key() + "/" + lid.key() + ".jam");
+        jamFile.stream << "{\n";
+        jamFile.stream << "  local _dll = [ FDLLName $(image) ] ;\n";
+        jamFile.stream << "  LINKLIBS on $(_dll) += `pkg-config --libs QtCore` ;\n";
+        jamFile.stream << "  CCFLAGS += `pkg-config --cflags QtCore` ;\n";
+        jamFile.stream << "}\n";
+
+        if (jamFile.done())
             ++m_num_generated_written;
         ++m_num_generated;
     }
