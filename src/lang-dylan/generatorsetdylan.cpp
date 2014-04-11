@@ -131,11 +131,11 @@ QString GeneratorSetDylan::generate() {
     QString res;
     res = QString("Classes in typesystem: %1\n"
                   "Generated:\n"
-                  "  - dylan.....: %2 (%3)\n"
-                  "  - cpp-impl..: %4 (%5)\n"
-                  "  - cpp-h.....: %6 (%7)\n"
-                  "  - library...: %8 (%9)\n"
-                  "  - lid.......: %10 (%11)\n"
+                  "  - dylan...........: %2 (%3)\n"
+                  "  - cpp-impl........: %4 (%5)\n"
+                  "  - cpp-h...........: %6 (%7)\n"
+                  "  - library+registry: %8 (%9)\n"
+                  "  - lid+jam.........: %10 (%11)\n"
                  )
           .arg(builder.classes().size())
           .arg(dylan_generator ? dylan_generator->numGenerated() : 0)
