@@ -1592,7 +1592,7 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
     s << "{" << endl;
     Indentation indent(INDENT);
 
-    s << INDENT << "QTJAMBI_DEBUG_TRACE(\"(native) entering: " << java_function_signature << "\");" << endl;
+    s << INDENT << "// QTJAMBI_DEBUG_TRACE(\"(native) entering: " << java_function_signature << "\");" << endl;
 
     // Avoid compiler warnings when the variables are unused
     {
@@ -1624,7 +1624,7 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
         if (java_function->isConstructor()) {
             writeFinalConstructor(s, java_function, qt_object_name, java_object_name);
 
-            s << INDENT << "QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
+            s << INDENT << "// QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
             << java_function_signature << "\");" << endl;
         } else {
 
@@ -1666,7 +1666,7 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
                 writeQtToJava(s, function_type, qt_return_value, java_return_value,
                               java_function, 0, EnumAsInts);
 
-                s << INDENT << "QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
+                s << INDENT << "// QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
                 << java_function_signature << "\");" << endl;
 
                 s << INDENT << "return " << java_return_value << ";";
@@ -1675,7 +1675,7 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
                 writeFunctionCall(s, qt_object_name, java_function, function_prefix, option,
                                   extra_param);
 
-                s << INDENT << "QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
+                s << INDENT << "// QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
                 << java_function_signature << "\");" << endl;
             }
         }
