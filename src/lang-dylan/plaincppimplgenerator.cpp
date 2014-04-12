@@ -1652,7 +1652,6 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
             s << "    ";
             if (has_function_type) {
                 const QString qt_return_value = "__qt_return_value";
-                const QString java_return_value = "__java_return_value";
                 if (function_type) {
                     writeTypeInfo(s, function_type, EnumAsInts);
                     s << " " << qt_return_value
@@ -1663,13 +1662,10 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
                                   extra_param);
                 s << endl;
 
-                writeQtToJava(s, function_type, qt_return_value, java_return_value,
-                              java_function, 0, EnumAsInts);
-
                 s << INDENT << "// QTJAMBI_DEBUG_TRACE(\"(native) -> leaving: "
                 << java_function_signature << "\");" << endl;
 
-                s << INDENT << "return " << java_return_value << ";";
+                s << INDENT << "return " << qt_return_value << ";";
 
             } else {
                 writeFunctionCall(s, qt_object_name, java_function, function_prefix, option,
