@@ -2047,8 +2047,8 @@ void PlainCppImplGenerator::writeSignalInitialization(QTextStream &s, const Abst
 
 QString PlainCppImplGenerator::fromObject(const TypeEntry *entry,
                                      const QString &var_name) {
-/*
     QString returned;
+/*
     QString package = entry->javaPackage();
     const ComplexTypeEntry *centry = entry->isComplex()
                                      ? static_cast<const ComplexTypeEntry *>(entry)
@@ -2082,8 +2082,8 @@ QString PlainCppImplGenerator::fromObject(const TypeEntry *entry,
                    + "\"" + c_signature(full_name, Underscores) + "\", true);";
     }
 
-    return returned;
 */
+    return returned;
 }
 
 void PlainCppImplGenerator::writeOriginalMetaObjectFunction(QTextStream &s, const AbstractMetaClass *java_class) {
