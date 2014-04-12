@@ -90,7 +90,7 @@ class PlainCppGenerator : public Generator {
 
         static QString shellClassName(const AbstractMetaClass *java_class) {
             return java_class->generateShellClass()
-                   ? "QtJambiShell_" + java_class->name()
+                   ? "QtCShell_" + java_class->name()
                    : java_class->qualifiedCppName();
         }
 

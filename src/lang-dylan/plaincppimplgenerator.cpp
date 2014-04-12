@@ -982,7 +982,7 @@ void PlainCppImplGenerator::writeShellDestructor(QTextStream &s, const AbstractM
         //  is fully managed by Qt
         // Lookup the constructor "QTextCodec()" of the "QTextCodec" class, get the method
         //  signature's ownership setting.
-        shellClassName(java_class);	// QtJambiShell_QTextCodec
+        shellClassName(java_class);	// QtCShell_QTextCodec
         java_class->name();		// QTextCodec
         const AbstractMetaClass *cls_ctor = 0;			// FIXME
         TypeSystem::Language language = TypeSystem::TargetLangCode;	// java
