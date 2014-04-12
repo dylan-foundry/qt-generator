@@ -1597,7 +1597,7 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
     // Avoid compiler warnings when the variables are unused
     {
         if (java_function->isConstructor())
-            s << INDENT << "Q_UNUSED(" << java_object_name << ")" << endl;
+            s << INDENT << "// Q_UNUSED(" << java_object_name << ")" << endl;
 
         bool hasNativeId = (callThrough && !java_function->isStatic() && !java_function->isConstructor());
         if (hasNativeId)
