@@ -1515,7 +1515,7 @@ void PlainCppImplGenerator::writeFinalFunctionArguments(QTextStream &s, const Ab
             if (!argument->type()->hasNativeId())
                 s << translateType(argument->type(), EnumAsInts);
             else
-                s << "long ";
+                s << "void* ";
             s << " " << argument->indexedName();
             nativeArgCount++;
         }
