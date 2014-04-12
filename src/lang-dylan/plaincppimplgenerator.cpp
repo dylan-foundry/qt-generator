@@ -629,7 +629,6 @@ void PlainCppImplGenerator::writeToStringFunction(QTextStream &s, const Abstract
 }
 
 void PlainCppImplGenerator::writeShellSignatures(QTextStream &s, const AbstractMetaClass *java_class) {
-/*
     bool has_constructors = java_class->hasConstructors();
 
     // Write the function names...
@@ -650,9 +649,7 @@ void PlainCppImplGenerator::writeShellSignatures(QTextStream &s, const AbstractM
                 else
                     s << ",";
                 s << endl
-*/
                 //<< "/* " << QString("%1").arg(QString::number(pos), 3) << " */ "
-/*
                 << "\"" << function->name() << "\"";
             }
             if (pos >= 0)
@@ -674,9 +671,7 @@ void PlainCppImplGenerator::writeShellSignatures(QTextStream &s, const AbstractM
                 else
                     s << ",";
                 s << endl
-*/
                 //<< "/* " << QString("%1").arg(QString::number(pos), 3) << " */ "
-/*
                 << "\""
                 << c_signature(function, SlashesAndStuff)
                 << "\"";
@@ -750,7 +745,6 @@ void PlainCppImplGenerator::writeShellSignatures(QTextStream &s, const AbstractM
         s << "static const int qtjambi_signal_count = " << signal_functions.size() << ";" << endl
         << endl;
     }
-*/
 }
 
 void PlainCppImplGenerator::writeQObjectFunctions(QTextStream &s, const AbstractMetaClass *java_class) {
@@ -1552,7 +1546,6 @@ void PlainCppImplGenerator::writeFinalFunctionSetup(QTextStream &s, const Abstra
         }
     }
 
-/*
     // Extract the qt equivalent to the this pointer and name it "qt_object_name"
     if (!java_function->isStatic() && !java_function->isConstructor()) {
         QString className = java_function->isFinalOverload() ? cls->name() : shellClassName(cls);
@@ -1563,13 +1556,11 @@ void PlainCppImplGenerator::writeFinalFunctionSetup(QTextStream &s, const Abstra
         << INDENT << "QTJAMBI_EXCEPTION_CHECK(__jni_env);" << endl
         << INDENT << "Q_ASSERT(" << qt_object_name << ");" << endl;
     }
-*/
 }
 
 
 void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMetaFunction *java_function,
         const AbstractMetaClass *java_class) {
-/*
     Q_ASSERT(java_class);
 
     if (java_function->isModifiedRemoved(TypeSystem::NativeCode))
@@ -1696,7 +1687,6 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
 
     s << endl << "}";
     s << endl << endl;
-*/
 }
 
 void PlainCppImplGenerator::writeAssignment(QTextStream &s, const QString &destName, const QString &srcName,
