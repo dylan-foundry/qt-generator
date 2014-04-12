@@ -1551,10 +1551,9 @@ void PlainCppImplGenerator::writeFinalFunctionSetup(QTextStream &s, const Abstra
         QString className = java_function->isFinalOverload() ? cls->name() : shellClassName(cls);
         s << INDENT
         << className << " *" << qt_object_name
-        << " = (" << className << " *) qtjambi_from_jlong(__this_nativeId);"
+        << " = (" << className << " *) __this_nativeId;"
         << endl
-        << INDENT << "QTJAMBI_EXCEPTION_CHECK(__jni_env);" << endl
-        << INDENT << "Q_ASSERT(" << qt_object_name << ");" << endl;
+        << INDENT << "// Q_ASSERT(" << qt_object_name << ");" << endl;
     }
 }
 
