@@ -1642,8 +1642,10 @@ void PlainCppImplGenerator::writeFinalFunction(QTextStream &s, const AbstractMet
                 function_prefix = "__override_";
                 extra_param.append("__do_static_call");
                 s << INDENT
-                << "bool __do_static_call = __this_nativeId ? ((QtJambiLink *) "
+                << "// bool __do_static_call = __this_nativeId ? ((QtJambiLink *) "
                 << "__this_nativeId)->createdByJava() : false;" << endl;
+                s << INDENT
+                << "bool __do_static_call = false;" << endl;
             } else {
                 option = OriginalName;
             }
