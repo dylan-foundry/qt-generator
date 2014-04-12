@@ -1536,6 +1536,7 @@ void PlainCppImplGenerator::writeFinalFunctionSetup(QTextStream &s, const Abstra
     foreach(const AbstractMetaArgument *argument, arguments) {
         if (!argument->type()->isPrimitive()
                 || !java_function->conversionRule(TypeSystem::NativeCode, argument->argumentIndex() + 1).isEmpty()) {
+            /*
             writeJavaToQt(s,
                           argument->type(),
                           "__qt_" + argument->indexedName(),
@@ -1543,6 +1544,11 @@ void PlainCppImplGenerator::writeFinalFunctionSetup(QTextStream &s, const Abstra
                           java_function,
                           argument->argumentIndex() + 1,
                           Option(UseNativeIds | EnumAsInts));
+            */
+            s << INDENT
+            << translateType(argument->type(), Option(UseNativeIds | EnumAsInts))
+            << " __qt_" << argument->indexedName()
+            << " = " << argument->indexedName() << ";" << endl;
         }
     }
 
